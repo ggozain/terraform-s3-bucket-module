@@ -1,41 +1,20 @@
-# Configure the Azure provider
 terraform {
   required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "~> 3.0.2"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
     }
   }
 
-  cloud {
-    organization = "gozain-lab"
-    workspaces {
-      name = "terraform"
-    }
-  }
-
+  required_version = ">= 1.2.0"
 }
 
-
-provider "azurerm" {
-  features {}
+provider "aws" {
+  region = var.aws_region
 }
 
-# Create a resource Group
-resource "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name
-  location = "westus2"
-
-  tags = {
-    Environment = "Terraform Getting Started"
-    Team        = "DevOps"
-  }
-}
-
-# Create a virtual network
-resource "azurerm_virtual_network" "vnet" {
-  name                = var.vnet_name
-  address_space       = ["10.0.0.0/16"]
-  location            = "westus2"
-  resource_group_name = azurerm_resource_group.rg.name
+module "s3" {
+  source = "/Users/gerardo.colina/Terraform-AWS-S3-Task/S3_Module"
+  #bucket name should be unique
+  bucket_name = "attempt-1"
 }
