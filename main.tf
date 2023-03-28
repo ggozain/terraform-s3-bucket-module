@@ -22,6 +22,6 @@ provider "aws" {
 }
 
 module "s3" {
-  source = "/Users/gerardo.colina/GITPersonal/terraform-s3-bucket-module/S3_Module"
+  source = "modules/S3_Module"
   bucket_name = "prefix-1"
 }
