@@ -22,6 +22,6 @@ provider "aws" {
 }
 
 module "s3" {
-  source = "modules/S3_Module"
+  source = "./modules/S3_Module"
   bucket_name = "prefix-1"
 }
