@@ -21,6 +21,4 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
     versioning_configuration {
       status = "Enabled"
   }
-
-    
 }
