@@ -22,7 +22,7 @@ provider "aws" {
 }
 
 module "s3" {
-  source = "/Users/gerardo.colina/Terraform-AWS-S3-Task/S3_Module"
+  source = "../S3_Module"
   #bucket name should be unique
   bucket_name = "attempt-1"
 }
