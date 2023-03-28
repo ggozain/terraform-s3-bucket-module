@@ -22,7 +22,6 @@ provider "aws" {
 }
 
 module "s3" {
-  source = ".terraform/modules/s3"
-  #bucket name should be unique
-  bucket_name = "attempt-1"
+  source = "/Users/gerardo.colina/GITPersonal/terraform-s3-bucket-module/S3_Module"
+  bucket_name = "prefix-1"
 }
